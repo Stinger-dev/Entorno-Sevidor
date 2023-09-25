@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form method="post">
+		Hola <input type="text" placeholder="Nombre" id="nombre"> <input type="button" id="editar" value="Cambiar">
+	</form>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+	p{
+		background-color: red;
+	}
+</style></head>
+<body>
+<p>Hola mundo</p>
+</body>
+</html>

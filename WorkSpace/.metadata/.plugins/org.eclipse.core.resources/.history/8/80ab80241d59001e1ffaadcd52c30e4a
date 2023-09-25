@@ -1,0 +1,13 @@
+/**
+ * 
+ */
+
+const boton = document.getElementById("editar");
+
+const texto = document.getElementById("nombre");
+
+
+boton.addEventListener("click", ()=>{
+	
+	document.getElementById("hola").textContent = texto.textContent
+})
