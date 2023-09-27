@@ -2,14 +2,23 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Apuntes</title>
 </head>
 <body>
 
-	<form method="get">
-		Hola <input type="text" placeholder="Nombre" id="name" name="name"> <input type="submit"  value="submit">
+	<form method="get" action="saludador">  <!-- En action va el nombre de la señal en si, se puede poner cualquier cosa, podria poner "lajgsfb"-->
+		Hola <input type="text" placeholder="Nombre" id="name" name="name"> 
+		<button type="submit">Enviar</button> <!-- Es importante hacerlo con la clase botton nose muy bien porque, pero hay que hacerlo aqui -->
 		
-		
+	</form>
+	
+	
+	<form method="post" action="saludador">  
+		<!-- La diferencia entre post y get-> 
+		get se ve la informacion en la url
+		post no se puede ver la informacion -->
+		Hola <input type="text" placeholder="Nombre" id="name" name="name"> 
+		<button type="submit">Enviar</button>
 		
 	</form>
 </body>
