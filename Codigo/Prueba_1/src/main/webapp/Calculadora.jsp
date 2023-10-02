@@ -1,4 +1,7 @@
+<%@page import="org.apache.catalina.startup.CatalinaBaseConfigurationSource"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@page import="utilities.Calculadora"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,31 +38,55 @@
 	#pantalla{
 		margin-top: 10%;
 		width: 70%;
-		height: 20%;
 		border-radius: 4px;
-   		overflow-x: auto;
-   		font-size: 50px;
+   		overflow-x: scroll;
+   		font-size: 80px;
    		text-align: right;
-	}
-	
-	
+   		white-space: nowrap;
+   		
+   	}
+   	
+   	.selector{
+   		font-size: 20px;
+   	}
+   		
+ 	
 	</style>
 
 </head>
 <body>
-
-	<div id="wrapWholeCalculator" class="centradoXY centrarX">
-		<textarea id="pantalla"></textarea>
+	<% 
+	String acumulado = request.getParameter("pantalla") != null ? request.getParameter("pantalla").concat(request.getParameter("operador")).concat(request.getParameter("numero"))  : "" ; 
+		try {
+			if(request.getParameter("calcular") != null){
+				acumulado = String.valueOf(Calculadora.calc(acumulado));
+			}
+			
+			if(request.getParameter("reset") != null){
+				acumulado = "";
+			}
+		} catch (Exception e) {
+			acumulado = "Syntax error";
+		}
 		
-		<div>
-		<p>Elija la operacion:
-		  <select>
-		    <option value="+">+</option>
-		    <option value="-">-</option>
-		  </select>
-		  </p>
-		</div>
-	
+	%>
+	<div id="wrapWholeCalculator" class="centradoXY centrarX">
+		<form method="get" action="Calculadora.jsp" >
+			<textarea name="pantalla" id="pantalla" rows="1" readonly><%= acumulado %></textarea>
+		 	<p class="selector" >Elija la operacion:
+			  <select name="operador" id="operador">
+				<option value=""></option>  
+			    <option value="+">+</option>
+			    <option value="-">-</option>
+			  </select>
+		 	</p>
+		 	<input name="numero" type="number" placeholder=0 step=".00001">
+		 	<br>
+		 	<input type="submit" name="calcular" value="Calcular">
+		 	<input type="submit" name="reset" value="Resetear">
+		 	<input type="submit" value="Añadir">
+		 	
+		</form>
 	</div>
 
 </body>
