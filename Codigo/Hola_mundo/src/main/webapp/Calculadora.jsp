@@ -10,15 +10,24 @@
 <body>
 
 	<%
-		double a =	Double.parseDouble(request.getParameter("a"));
-		double b = Double.parseDouble(request.getParameter("b"));
+		String a =	request.getParameter("a");
+		String b = request.getParameter("b");
 		String operacion = request.getParameter("operacion");
 
 		Calculadora calc = new Calculadora(a,b,operacion);
-	
-		out.println(calc.operar());
-	
+		
+		
+		try {
+			out.println(calc.operar());
+			
+		} catch (Exception e) {
+			out.println("sd");
+		}
+
 	%>
+	<br>
+	<a href="Calculadora.html" ><input type="button" value="Volver"></a>
+	
 	
 
 </body>

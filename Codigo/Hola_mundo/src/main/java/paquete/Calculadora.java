@@ -13,11 +13,14 @@ public class Calculadora {
 	private String operator;
 	
 	
-	public Calculadora(double num1, double num2, String operator) {
+	public Calculadora(String num1, String num2, String operator) throws Exception {
 		super();
-		this.num1 = num1;
-		this.num2 = num2;
-		this.operator = operator;
+		if(num1 != null &&  num1 != null  && !num1.isEmpty() && !num2.isEmpty()) {
+			this.num1 = Double.parseDouble(num1);			
+			this.num2 = Double.parseDouble(num2);
+			this.operator = operator;
+		}
+
 	}
 	
 	
