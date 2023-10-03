@@ -56,17 +56,17 @@
 </head>
 <body>
 	<% 
-	String acumulado = request.getParameter("pantalla") != null ? request.getParameter("pantalla").concat(request.getParameter("operador")).concat(request.getParameter("numero"))  : "" ; 
+	String acumulado = request.getParameter("pantalla") != null ? request.getParameter("pantalla").concat(request.getParameter("operador")).concat(request.getParameter("numero"))S: "" ; 
 		try {
 			if(request.getParameter("calcular") != null){
-				acumulado = String.valueOf(Calculadora.calc(acumulado));
+				acumulado = acumulado + "=" +  String.valueOf(Calculadora.calc(acumulado));
 			}
-			
 			if(request.getParameter("reset") != null){
 				acumulado = "";
 			}
 		} catch (Exception e) {
-			acumulado = "Syntax error";
+			acumulado = acumulado + "=>" + "Syntax error";
+			System.out.println(e);
 		}
 		
 	%>

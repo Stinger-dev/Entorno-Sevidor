@@ -19,7 +19,6 @@ public class Calculadora {
 	
 	private static void  cadenaValida(String cadena) throws Exception {
 		String[] divididosMas = cadena.split("\\+");
-		
 		if (!sinVacios(divididosMas)) {
 			throw new Exception("Syntax error");
 		}else {		
@@ -37,6 +36,7 @@ public class Calculadora {
 		int k = 0;
 		while(resultado && k< cadenas.length){
 			if (cadenas[k].isEmpty()) {
+				resultado = false;
 			}
 			k++;
 		}
